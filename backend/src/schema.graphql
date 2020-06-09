@@ -1,0 +1,14 @@
+type User { ##formato do Usuário, retorno pro front-end
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Query {
+  users: [User!]! ## Nesse caso, toda requisição deve retornar um array e será obrigatório passar um tipo User
+  user(id: ID!): User ## Retorna um único usuário caso exista, por isso não é obrigatório
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+}
